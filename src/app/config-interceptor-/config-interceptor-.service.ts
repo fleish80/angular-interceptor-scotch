@@ -1,11 +1,10 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError  } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { ErrorDialogService } from '../error-dialog/error-dialog.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConfigInterceptorService implements HttpInterceptor {
 
   constructor(public errorDialogService: ErrorDialogService) { }
